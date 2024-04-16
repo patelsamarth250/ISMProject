@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sent Messages</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Sent Messages</h2>
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message">
+                    <p><strong>To:</strong> {{ message[2] }}</p>
+                    <p>{{ message[3] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('inbox') }}" class="btn">Back to Inbox</a>
+        <a href="{{ url_for('logout') }}" class="btn logout">Logout</a>
+    </div>
+</body>
+</html>
